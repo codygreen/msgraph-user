@@ -7,7 +7,10 @@ from kiota_authentication_azure.azure_identity_authentication_provider import (
 from msgraph import GraphRequestAdapter, GraphServiceClient
 from msgraph.generated.users.users_request_builder import UsersRequestBuilder
 
-class Graph:
+class GraphUser:
+    """
+    Microsoft Graph API client for the User endpoint
+    """
     settings: SectionProxy
     client_credential: ClientSecretCredential
     adapter: GraphRequestAdapter

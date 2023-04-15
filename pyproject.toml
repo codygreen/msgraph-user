@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "msgraph_user"
+version = "0.0.1"
+description = "A package for querying the MS Graph User API"
+authors = ["Cody Green"]
+license = "Apache License 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+azure-identity = "^1.12.0"
+msgraph-sdk = "^1.0.0a11"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
+
+[tool.pytest.init_options]
+pythonpath = "src"
+
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+    "azure-identity==1.12.0",
+    "msgraph-sdk==1.0.0a11"
+]
+build-backend = "poetry.core.masonry.api"
