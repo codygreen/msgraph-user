@@ -16,6 +16,7 @@ msgraph-sdk = "^1.0.0a11"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
 pytest-asyncio = "^0.21.0"
+python-dotenv = "^1.0.0"
 
 [tool.pytest.init_options]
 pythonpath = "src"

@@ -1,5 +1,4 @@
 """Graph API client"""
-from configparser import SectionProxy
 from azure.identity.aio import ClientSecretCredential
 from kiota_authentication_azure.azure_identity_authentication_provider import (
     AzureIdentityAuthenticationProvider
@@ -32,16 +31,13 @@ class GraphUser:
     """
     Microsoft Graph API client for the User endpoint
     """
-    settings: SectionProxy
     client_credential: ClientSecretCredential
     adapter: GraphRequestAdapter
     app_client: GraphServiceClient
 
-    def __init__(self, config: SectionProxy):
-        self.settings = config
-        client_id = self.settings['clientId']
-        tenant_id = self.settings['tenantId']
-        client_secret = self.settings['clientSecret']
+    def __init__(self, client_id: str, client_secret: str, tenant_id: str):
+        if client_id is None or client_secret is None or tenant_id is None:
+            raise ValueError('clientId, client_secret, and tenant_id are required')
 
         self.client_credential = ClientSecretCredential(tenant_id, client_id, client_secret)
         auth_provider = AzureIdentityAuthenticationProvider(self.client_credential) # type: ignore
